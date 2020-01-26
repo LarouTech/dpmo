@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  menuExpand() {
+  expandMenu() {
     if(this.expand) {
       this.expand = false;
     } else {

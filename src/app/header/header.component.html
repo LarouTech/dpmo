@@ -22,7 +22,7 @@
         <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="issues"class="navbar__link">Issues</a></li>
         <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="decisons" class="navbar__link">Decisons</a></li>
       </ul>
-        <svg *ngIf="menuCollapse" class="navbar__menu-logo" (click)="menuExpand()">
+        <svg *ngIf="menuCollapse" class="navbar__menu-logo" (click)="expandMenu()">
           <use xlink:href="/assets/img/sprite.svg#icon-menu"></use>
         </svg>      
     </div>
@@ -32,11 +32,11 @@
 
 <section *ngIf="expand" class="menu-expand">
   <ul *ngIf="menuCollapse" class="menu-expand__list">
-    <li class="menu-expand__item" routerLinkActive="active-expand"><a routerLink="home" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Home</a></li>
-    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="dashboard" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Dashboard</a></li>
-    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="risks" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Risks</a></li>
-    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="issues"class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Issues</a></li>
-    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="decisons" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Decisons</a></li>
+    <li class="menu-expand__item" routerLinkActive="active-expand"><a routerLink="home" (click)="expandMenu()" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Home</a></li>
+    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="dashboard" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Dashboard</a></li>
+    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="risks" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Risks</a></li>
+    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="issues" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Issues</a></li>
+    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="decisons" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Decisons</a></li>
   </ul>
 </section>
 

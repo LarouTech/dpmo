@@ -149,7 +149,7 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   padding: 0 10rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   @media only screen and(max-width: 62.5em) {
     padding: 0 4rem;
@@ -173,11 +173,11 @@
   &__item {
     color: $primary-color;
     list-style: none;
-    padding: .5rem 0;
-    transition: all .5s;
+    padding: .7rem 0;
+    transition: all infinite;
 
     &:hover {
-      transform: translateX(1.5rem);
+      transform: translateX(1.5rem) scaleY(1.15);
     }
   }
 
@@ -200,7 +200,7 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   padding: 0 10rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   @media only screen and(max-width: 62.5em) {
     padding: 0 4rem;
@@ -245,4 +245,6 @@
 .active-expand {
   color: $secondary-text-color;
   transform: translateX(1.5rem);
+
+
 }

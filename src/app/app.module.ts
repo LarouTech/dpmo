@@ -13,6 +13,7 @@ import { DecisionsComponent } from './decisions/decisions.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { SlideInService } from './slide-in.service';
+import { CreateRiskComponent } from './risks/create-risk/create-risk.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SlideInService } from './slide-in.service';
     IssuesComponent,
     DecisionsComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    CreateRiskComponent
   ],
   imports: [
     BrowserModule,
