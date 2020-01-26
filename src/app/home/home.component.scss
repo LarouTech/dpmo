@@ -1,0 +1,13 @@
+@import "src/styles.scss";
+
+.home-box {
+  @include large-box;
+}
+
+// .home-card {
+//   height: 100%;
+//   background-color: $grey-light;
+//   border-radius: .4rem;
+//   box-shadow: .5rem 1rem 1rem rgba($primary-text-color, .2);
+//   padding: 2rem 2.5rem;
+// }

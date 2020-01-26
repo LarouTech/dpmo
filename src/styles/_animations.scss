@@ -1,0 +1,76 @@
+.slideInLeft {
+  animation: slideInLeft;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+.slideInRight {
+  animation: slideInRight;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    height: 0;
+    box-shadow: 0rem .5rem .5rem rgba($primary-text-color, 0);
+
+  }
+
+
+  100% {
+    height: 21rem;
+    opacity: 1;
+    margin-bottom: 2rem;
+    box-shadow: 0rem .3rem .3rem rgba($primary-text-color, .25);
+
+  }
+}
+
+@keyframes unexpand {
+  0% {
+    height: 21rem;
+    opacity: 1;
+    box-shadow: 0rem .3rem .3rem rgba($primary-text-color, .25);
+
+  }
+
+
+  100% {
+    height: 0;
+    box-shadow: 0rem .5rem .5rem rgba($primary-text-color, .0);
+
+  }
+}
+
+
+
+@keyframes slideOutUpCustom {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: .4;
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes menu-animation {
+  0% {
+    width: 0%;
+
+  }
+
+  100% {
+
+    width: 100%;
+
+  }
+}

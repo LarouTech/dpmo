@@ -1,0 +1,248 @@
+@import "src/styles.scss";
+
+.header {
+  height: 7rem;
+  color: $primary-color-light;
+  background-image: linear-gradient(90deg, $primary-color-dark, $primary-color);
+  padding: 0 10rem;
+  width: 100%;
+  box-shadow: .5rem 1rem 1.5rem rgba($primary-text-color, .2);
+  border-bottom: .125rem solid $primary-text-color;
+  display: block;
+  z-index: 10;
+
+  @media only screen and(max-width: 62.5em) {
+    padding: 0 1.5rem;
+  }
+
+  @media only screen and(max-width: 37.5em) {
+    padding: 0 1.5rem;
+    box-shadow: .5rem .3rem .3rem rgba($primary-text-color, 0);
+  }
+}
+
+.navbar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  opacity: .9;
+  
+
+
+  &__branding-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    transition: all .3s;
+    animation: lightSpeedIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    cursor: pointer;
+    outline: none;
+
+    @media only screen and(max-width: 62.5em) {
+      padding: 0 0rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__logo {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 1.5rem;
+    fill: $primary-color-text;
+    margin-bottom: .2rem;
+
+    @media only screen and(max-width: 37.5em) {
+      font-size: 2.5rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__branding {
+    font-family: 'Acme', sans-serif;
+    color: $primary-color-text;
+    font-size: 3.5rem;
+
+    @media only screen and(max-width: 37.5em) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__menu-box {
+    height: 100%;
+    margin-left: auto;
+    animation: lightSpeedIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    padding-right: .4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    transition: all .3s;
+
+    @media only screen and(max-width: 62.5em) {
+      margin-right: 0rem;
+    }
+  }
+
+  &__item {
+    margin: 0 1.5rem;
+    list-style: none;
+
+    &:hover {
+      transform: scale(1.2) skewY(-1deg);
+    }
+  }
+
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__menu-logo {
+    height: 4rem;
+    width: 4rem;
+    margin-right: 2.5rem;
+    fill: $primary-color-text;
+    cursor: pointer;
+    animation: lightSpeedIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    transition: all .2s;
+
+    @media only screen and(max-width: 62.5em) {
+      margin-right: -1.5rem;
+    }
+
+    @media only screen and(max-width: 37.5em) {
+      margin-right: 0rem;
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+  }
+}
+
+.menu-expand {
+  @include menu-expansion;
+  animation: expand;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  padding: 0 10rem;
+  font-size: 2rem;
+
+  @media only screen and(max-width: 62.5em) {
+    padding: 0 4rem;
+  }
+
+  @media only screen and(max-width: 37.5em) {
+    padding: 0 1.5rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0rem;
+    animation: fadeIn;
+    animation-duration: 1.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  &__item {
+    color: $primary-color;
+    list-style: none;
+    padding: .5rem 0;
+    transition: all .5s;
+
+    &:hover {
+      transform: translateX(1.5rem);
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__arrow-icon {
+    font-size: 2.5rem;
+  }
+
+}
+
+.menu-unexpand {
+  @include menu-expansion;
+  animation: unexpand;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  padding: 0 10rem;
+  font-size: 2rem;
+
+  @media only screen and(max-width: 62.5em) {
+    padding: 0 4rem;
+  }
+
+  @media only screen and(max-width: 37.5em) {
+    padding: 0 1.5rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0rem;
+    animation: slideOutUpCustom;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+  }
+
+  &__item {
+    color: $primary-color;
+    list-style: none;
+    padding: .5rem 0;
+  }
+
+  &__link:link,
+  &__link:visited {
+    display: block;
+    text-decoration: none;
+    color: $primary-color-dark;
+    z-index: -1;
+  }
+  
+}
+
+.active {
+  color: $primary-color-text;
+}
+
+.active-expand {
+  color: $secondary-text-color;
+  transform: translateX(1.5rem);
+}
