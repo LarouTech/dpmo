@@ -6,6 +6,7 @@ import { RisksComponent } from './risks/risks.component';
 import { IssuesComponent } from './issues/issues.component';
 import { DecisionsComponent } from './decisions/decisions.component';
 import { HomeComponent } from './home/home.component';
+import { CreateRiskComponent } from './risks/create-risk/create-risk.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'risks', component: RisksComponent },
+  { path: 'risks/create-risk', component: CreateRiskComponent },
   { path: 'issues', component: IssuesComponent },
   { path: 'decisons', component: DecisionsComponent }
 ];

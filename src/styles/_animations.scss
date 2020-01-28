@@ -10,6 +10,13 @@
   animation-iteration-count: 1;
 }
 
+.slideOutRight {
+  animation: slideOutRight;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 
 @keyframes expand {
   0% {
@@ -76,3 +83,4 @@
 
   }
 }
+
