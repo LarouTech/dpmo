@@ -6,18 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { GaugeChartModule } from 'angular-gauge-chart'
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RisksComponent } from './risks/risks.component';
+import { RisksComponent } from './risk/risk.component';
 import { IssuesComponent } from './issues/issues.component';
 import { DecisionsComponent } from './decisions/decisions.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { CreateRiskComponent } from './risks/create-risk/create-risk.component';
+import { CreateRiskComponent } from './risk/create-risk/create-risk.component';
+import { RiskLogComponent } from './risk/risk-log/risk-log.component';
+
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import { CreateRiskComponent } from './risks/create-risk/create-risk.component';
     DashboardComponent,
     HomeComponent,
     CreateRiskComponent,
+    RiskLogComponent,
 
   ],
   imports: [
@@ -39,13 +43,11 @@ import { CreateRiskComponent } from './risks/create-risk/create-risk.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    GaugeChartModule,
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+  HttpClientInMemoryWebApiModule.forRoot(
+    InMemoryDataService, { dataEncapsulation: false }
+  ),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,61 +1,36 @@
 @import "src/styles.scss";
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 4rem;
+}
 
 .create-risk {
-  padding: 0 $intial-padding;
-  width: 100%;
-  height: 50vh;
+  padding-left: $intial-padding;
+  grid-column: 1 / 3;
   margin-top: 3rem;
   animation: slideInLeft;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
 
-  &__form {}
-
+app-risk-log {
+  grid-column: 3 / 6 ;
 }
 
 .risk-card {
-  color: $secondary-text-color;
-  border-radius: .4rem;
-  border: .1rem solid rgba($primary-color, .2);
-  box-shadow: .1rem 1rem 1.5rem rgba($primary-color, .2);
-  padding: 3rem 4rem;
-
-  display: flex;
-  flex-direction: column;
-
-  &__heading-box {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: .5rem;
-    border-bottom: rgba($primary-color, .6) .3rem solid;
-  }
-
-
-  &__heading-logo {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-right: 1rem;
-    margin-bottom: .3rem;
-    fill: $primary-color;
-  }
-
-  &__heading {
-    font-size: 2.4rem;
-    color: $primary-text-color;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    font-weight: 400;
-
-  }
+ @include panel-style;
 
   &__input-box {
     font-size: 1.8rem;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 3.5rem;
+    padding-top: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: 100%;
     transition: all .3s ease;
 
@@ -65,6 +40,11 @@
     display: flex;
     align-items: center;
     margin-bottom: .5rem;
+
+    &--rating {
+      justify-content: space-around;
+    }
+   
   }
 
   &__icon {
@@ -80,20 +60,22 @@
     color: $primary-color;
     padding: .3rem 1rem;
 
+    &--rating {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      
+    }
+
   }
 
-  &__input-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+
 
   &__input {
     font-family: inherit;
     outline: none;
     border: none;
     border-bottom: rgba($secondary-text-color, .8) .1rem solid;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: .4rem 1.2rem;
     color: $primary-text-color;
     border-top-left-radius: .4rem;
@@ -101,7 +83,7 @@
     background-color: rgba($grey-light-3, .8);
     transition: all .3s ease;
     box-shadow: .4rem .6rem 1rem rgba($primary-color, .2);
-    width: 100%;
+
 
     &:hover {
       border-bottom: $primary-color .2rem solid;
@@ -139,33 +121,50 @@
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: .1rem;
-
-
+    
     &--low {
       color: $primary-success;
+    }
+    &--low-2 {
+      color: $primary-success;
+      font-size: 2.5rem;
+      margin: 0;
     }
 
     &--med {
       color: $primary-warning;
     }
 
+    &--med-2 {
+      color: $primary-warning;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
     &--high {
       color: $primary-danger;
+    }
+
+    &--high-2 {
+      color: $primary-danger;
+
+      font-size: 2.5rem;
+      margin: 0;
     }
   }
 
 
   &__perc {
     padding-top: 1.5rem;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 500;
     letter-spacing: .2rem;
-
   }
 
   &__symbol {
-      font-size: 3.0rem;
+      font-size: 2.5rem;
       padding-bottom: .2rem;
+      
   }
 
   &__score-box {
@@ -180,9 +179,63 @@
     background-color: rgba($grey-light-3, .8);
     box-shadow: .4rem .6rem 1rem rgba($primary-color, .2);
 
+    @media only screen and (max-width: 62.5em) {
+      flex-direction: row;
+      align-items: center;
+
+     }
+  }
+
+  &__score-box-rating {
+    height: 100%
+  }
+
+  &__assess-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3.5rem;;
+   
+
+    @media only screen and (max-width: 62.5em) {
+     flex-wrap: wrap;
+    }
+
+  }
+
+  &__gauge {
+    color: $primary-color;
+  }
+
+  &__gauge-bottom {
+    margin-top: 1.5rem;
+    padding: 0;
+  }
+
+  .btn-box {
+    padding: 1rem 1.5rem;
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
+    margin-top: .5rem;
+    padding-top: 1.5rem;
+    border-top: rgba($primary-color, .6) .3rem solid;
+  }
+
+  .btn {
+    text-transform: uppercase;
+ 
+
+
+    &--grey {
+      background-color: $secondary-text-color;
+      color: $primary-color-text;
+    }
   }
 
 }
+
+
 
 
 

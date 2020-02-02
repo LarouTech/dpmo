@@ -5,7 +5,7 @@
 
     <div routerLink="home" class="navbar__branding-box">
       <svg class="navbar__logo">
-        <use xlink:href="/assets/img/sprite.svg#icon-meter"></use>
+        <use xlink:href="/assets/img/sprite.svg#icon-barcode"></use>
       </svg>
 
       <div class="navbar__branding">
@@ -18,7 +18,7 @@
       <ul *ngIf="!menuCollapse" class="navbar__list">
         <li class="navbar__item" routerLinkActive="active"><a routerLink="home" class="navbar__link">Home</a></li>
         <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="dashboard" class="navbar__link">Dashboard</a></li>
-        <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="risks" class="navbar__link">Risks</a></li>
+        <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="risk" class="navbar__link">Risk</a></li>
         <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="issues"class="navbar__link">Issues</a></li>
         <li class="navbar__item" [routerLinkActive]="['active']"><a routerLink="decisons" class="navbar__link">Decisons</a></li>
       </ul>
@@ -34,7 +34,7 @@
   <ul *ngIf="menuCollapse" class="menu-expand__list">
     <li class="menu-expand__item" routerLinkActive="active-expand"><a routerLink="home" (click)="expandMenu()" class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Home</a></li>
     <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="dashboard" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Dashboard</a></li>
-    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="risks" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Risks</a></li>
+    <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="risk" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>risk</a></li>
     <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="issues" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Issues</a></li>
     <li class="menu-expand__item" [routerLinkActive]="['active-expand']"><a routerLink="decisons" (click)="expandMenu()"  class="menu-expand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Decisons</a></li>
   </ul>
@@ -44,7 +44,7 @@
   <ul class="menu-unexpand__list">
     <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Home</a></li>
     <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Dashboard</a></li>
-    <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Risks</a></li>
+    <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>risk</a></li>
     <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Issues</a></li>
     <li class="menu-unexpand__item"><a class="menu-unexpand__link"><span class="arrow-icon">&rsaquo;&nbsp; </span>Decisions</a></li>
   </ul>

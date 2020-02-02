@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Risk } from './risks/risk.model';
+import { Risk } from './risk/risk.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,63 @@ import { Risk } from './risks/risk.model';
 export class InMemoryDataService {
 
   createDb() {
-    const risks = [{
+    const risks = [
+    {
       _id: 1,
+      owner: 'Dom',
       dateRaised: Date.now(),
       description: 'What a shit show',
-      category: 'resource'
-    }];
+      category: 'resource',
+      impact: 56,
+      probability: 77,
+      rating: 67
+
+    },
+    {
+      _id: 2,
+      owner: 'Glenn',
+      dateRaised: Date.now(),
+      description: 'What a shit show',
+      category: 'resource',
+      impact: 56,
+      probability: 77,
+      rating: 67
+
+    },
+    {
+      _id: 3,
+      owner: 'Yanick',
+      dateRaised: Date.now(),
+      description: 'What a shit show',
+      category: 'resource',
+      impact: 56,
+      probability: 77,
+      rating: 67
+
+    },
+    {
+      _id: 4,
+      owner: 'Yanick',
+      dateRaised: Date.now(),
+      description: 'What a shit show',
+      category: 'resource',
+      impact: 56,
+      probability: 77,
+      rating: 67
+
+    },
+    {
+      _id: 5,
+      owner: 'Yanick',
+      dateRaised: Date.now(),
+      description: 'What a shit show',
+      category: 'resource',
+      impact: 56,
+      probability: 77,
+      rating: 67
+
+    },];
+
     return {risks};
   }
 

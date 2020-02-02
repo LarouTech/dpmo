@@ -19,7 +19,6 @@
 html {
   padding: 1.5rem 0;
   font-size: 62.5%; //1 rem = 10px ---> 10/16 = 62.5%
-
   @media only screen and(max-width: 62.5em) {
     padding: 0;
   }

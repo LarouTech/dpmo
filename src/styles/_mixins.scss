@@ -22,4 +22,41 @@
     border-bottom-right-radius: 4px;
 }
 
+@mixin  panel-style {
+  color: $secondary-text-color;
+    border-radius: .4rem;
+    border: .1rem solid rgba($primary-color, .2);
+    box-shadow: .1rem 1rem 1.5rem rgba($primary-color, .2);
+    padding: 3rem 4rem;
+  
+    display: flex;
+    flex-direction: column;
+  
+    &__heading-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: rgba($primary-color, .6) .3rem solid;
+    }
+  
+  
+    &__heading-logo {
+      height: 2.5rem;
+      width: 2.5rem;
+      margin-right: 1rem;
+      margin-bottom: .3rem;
+      fill: $primary-color;
+    }
+  
+    &__heading {
+      font-size: 2.4rem;
+      color: $primary-text-color;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      font-weight: 400;
+  
+    }
+}
+
 

@@ -6,9 +6,18 @@
     margin-top: 1.5rem
 }
 
+.mr-2 {
+    margin-right: 3rem;
+}
+
 
 .col-2 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.custom-rating {
+    margin: 1.5rem 0;
+    font-size: 2.5rem;
 }
