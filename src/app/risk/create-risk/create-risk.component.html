@@ -4,12 +4,17 @@
 
     <form [formGroup]="riskForm" (ngSubmit)="onSubmit()" class="create-risk__form">
 
+
+
       <div class="risk-card">
         <div class="risk-card__heading-box">
-          <svg class="risk-card__heading-logo">
-            <use xlink:href="/assets/img/sprite.svg#icon-magic-wand"></use>
-          </svg>
-          <h2 class="risk-card__heading">Create risk</h2>
+          <div class="flex">
+              <svg class="risk-card__heading-logo">
+                <use xlink:href="/assets/img/sprite.svg#icon-magic-wand"></use>
+              </svg>
+              <h2 class="risk-card__heading">Create risk</h2>
+          </div>
+
         </div>
 
 
@@ -40,12 +45,12 @@
               <label for="dateRaised" class="risk-card__label">Date raised</label>
             </div>
             <div class="risk-card__date-box risks-card__wrapper">
-              <input form [matDatepicker]="picker" formControlName="dateRaised" name="dateRaised" id="dateRaised"
-                matInput name="dateRaised" type="text" class="risk-card__input risk-card__date-input" disabled="true">
+              <input [matDatepicker]="picker" formControlName="dateRaised" name="dateRaised" id="dateRaised" matInput
+                name="dateRaised" type="text" class="risk-card__input risk-card__date-input">
               <mat-datepicker-toggle class="risk-card__toggler" matSuffix [for]="picker">
                 <mat-icon matDatepickerToggleIcon>arrow_drop_down</mat-icon>
               </mat-datepicker-toggle>
-              <mat-datepicker #picker disabled="false"></mat-datepicker>
+              <mat-datepicker color="primary" #picker disabled="false"></mat-datepicker>
               <small *ngIf="riskForm.get('dateRaised').invalid && riskForm.get('dateRaised').touched"
                 class="risk-card__error">Enter a valid date</small>
             </div>
@@ -119,23 +124,23 @@
                 <label for="category" class="risk-card__label risk-card__label--rating">Rating
                 </label>
               </div>
-  
+
             </div>
 
             <div class="risk-card__score-box">
               <div class="risk-card__gauge-bottom">
-                <span class="risk-card__rating risk-card__rating--low-2" *ngIf="ratingValue <= 33 || ratingValue === undefined || null "
-                  matBadgeColor="warn">LOW</span>
+                <span class="risk-card__rating risk-card__rating--low-2"
+                  *ngIf="ratingValue <= 33 || ratingValue === undefined || null " matBadgeColor="warn">LOW</span>
                 <span class="risk-card__rating risk-card__rating--med-2"
                   *ngIf="ratingValue > 33 && this.ratingValue <= 66">MED</span>
                 <span class="risk-card__rating risk-card__rating--high-2" *ngIf="ratingValue > 66">HIGH</span>
               </div>
-  
-              <rg-gauge-chart class="risk-card__gauge" [canvasWidth]="canvasWidth" [needleValue]="needleValue"
-              [centralLabel]="centralLabel" [options]="options"></rg-gauge-chart>
-           
 
-          </div>
+              <rg-gauge-chart class="risk-card__gauge" [canvasWidth]="canvasWidth" [needleValue]="needleValue"
+                [centralLabel]="centralLabel" [options]="options"></rg-gauge-chart>
+
+
+            </div>
 
           </div>
 
@@ -169,6 +174,7 @@
 
 
 
+
       </div>
 
     </form>
@@ -176,5 +182,7 @@
   </section>
 
   <app-risk-log></app-risk-log>
+
+  <app-risk-charts></app-risk-charts>
 
 </div>

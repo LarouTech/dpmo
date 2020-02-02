@@ -29,7 +29,7 @@ export class CreateRiskComponent implements OnInit, OnDestroy {
   public options = {
     hasNeedle: true,
     needleColor: 'gray',
-    needleUpdateSpeed: 1000,
+    needleUpdateSpeed: 500,
     arcColors: ['#3F51B5', 'lightgray'],
     arcDelimiters: [33, 66],
     needleStartValue: this.ratingValue,

@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRiskComponent } from './risk/create-risk/create-risk.component';
 import { RiskLogComponent } from './risk/risk-log/risk-log.component';
+import { RiskChartsComponent } from './risk/risk-charts/risk-charts.component';
 
 
 
@@ -34,6 +35,7 @@ import { RiskLogComponent } from './risk/risk-log/risk-log.component';
     HomeComponent,
     CreateRiskComponent,
     RiskLogComponent,
+    RiskChartsComponent,
 
   ],
   imports: [

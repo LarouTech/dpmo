@@ -3,13 +3,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 4rem;
 }
 
 .create-risk {
   padding-left: $intial-padding;
   grid-column: 1 / 3;
+  grid-row: 1 / 5;
   margin-top: 3rem;
   animation: slideInLeft;
   animation-duration: 1s;
@@ -19,6 +20,12 @@
 
 app-risk-log {
   grid-column: 3 / 6 ;
+  grid-row: 1 /3;
+}
+
+app-risk-charts {
+  grid-column: 3 / 6 ;
+  grid-row: 3 / 6;
 }
 
 .risk-card {
@@ -33,7 +40,6 @@ app-risk-log {
     padding-right: 1rem;
     width: 100%;
     transition: all .3s ease;
-
   }
 
   &__label-box {
@@ -44,7 +50,6 @@ app-risk-log {
     &--rating {
       justify-content: space-around;
     }
-   
   }
 
   &__icon {
@@ -63,12 +68,8 @@ app-risk-log {
     &--rating {
       font-size: 2rem;
       margin-bottom: 1rem;
-      
     }
-
   }
-
-
 
   &__input {
     font-family: inherit;
@@ -224,12 +225,22 @@ app-risk-log {
 
   .btn {
     text-transform: uppercase;
+
+    &:hover {
+      background-color: $primary-color-text;
+      color: $primary-color;
+      border: .1rem solid rgba($primary-color, .8);
+    }
  
-
-
     &--grey {
       background-color: $secondary-text-color;
       color: $primary-color-text;
+
+      &:hover {
+        background-color: $primary-color-text;
+        color: $secondary-text-color;
+        border: .1rem solid rgba($secondary-text-color, .8);
+      }
     }
   }
 
