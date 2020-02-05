@@ -25,11 +25,12 @@ app-risk-log {
 
 app-risk-charts {
   grid-column: 3 / 6 ;
-  grid-row: 3 / 6;
+  grid-row: 3 /  6;
 }
 
 .risk-card {
  @include panel-style;
+
 
   &__input-box {
     font-size: 1.8rem;
@@ -40,6 +41,7 @@ app-risk-charts {
     padding-right: 1rem;
     width: 100%;
     transition: all .3s ease;
+
   }
 
   &__label-box {
@@ -88,6 +90,7 @@ app-risk-charts {
 
     &:hover {
       border-bottom: $primary-color .2rem solid;
+      
     }
 
     &:focus {
@@ -225,21 +228,25 @@ app-risk-charts {
 
   .btn {
     text-transform: uppercase;
+    background-color: $primary-color-text;
+    color: $primary-color;
+    border: .1rem solid rgba($primary-color, .8);
 
     &:hover {
-      background-color: $primary-color-text;
-      color: $primary-color;
-      border: .1rem solid rgba($primary-color, .8);
+
+      background-color: $primary-color;
+      color: $primary-color-text;
     }
  
     &--grey {
-      background-color: $secondary-text-color;
-      color: $primary-color-text;
+
+      background-color: $primary-color-text;
+      color: $secondary-text-color;
+      border: .1rem solid rgba($secondary-text-color, .8);
 
       &:hover {
-        background-color: $primary-color-text;
-        color: $secondary-text-color;
-        border: .1rem solid rgba($secondary-text-color, .8);
+        background-color: $secondary-text-color;
+        color: $primary-color-text;
       }
     }
   }

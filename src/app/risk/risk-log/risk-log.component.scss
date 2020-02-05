@@ -15,19 +15,19 @@
   transition: all 2s;
 
   &__filter-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
   }
 
   &__filter-icon {
-      height: 1.25rem;
-      width: 1.25rem;
-      fill: $secondary-text-color;
-      position: absolute;
-      top: .75rem;
-      right: .75rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    fill: $secondary-text-color;
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
   }
 
   &__filter {
@@ -43,6 +43,7 @@
     background-color: rgba($grey-light-3, .8);
     transition: all .3s ease;
     box-shadow: .4rem .6rem 1rem rgba($primary-color, .2);
+    transition: all .5s;
 
 
 
@@ -55,9 +56,8 @@
     &:focus {
       border-bottom: $primary-color .2rem solid;
       transform: scale(1.1) translateX(-1rem);
-
-
     }
+
   }
 }
 
@@ -86,18 +86,89 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $primary-color;
+  }
+
+  &__item-box {
+    position: relative;
 
   }
 
+  &__arrow-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  &__arrow {
+      height: 2rem;
+      width: 2rem;
+      fill: $primary-color-dark;
+      opacity: 0;
+      transform: translateX(-4rem) scaleY(.7);
+      padding: 0;
+      margin: 0;
+  }
+
+  &__item-icon {
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: -1rem;
+    left: -.9rem;
+    z-index: 5;
+    border: rgba($secondary-text-color, 0.5) solid .2rem;
+    border-radius: 100rem;
+    box-shadow: .4rem .6rem 1rem rgba($primary-color, .2);
+    transition: all .5s;
+    opacity: 1;
+
+    &--low {
+      fill: $primary-success;
+    }
+
+    &--med {
+      fill: $primary-warning;
+    }
+
+    &--high {
+      fill: $primary-danger;
+    }
+
+  }
+
+  &__item-text {
+    position: relative;
+    color: $primary-color-text;
+    z-index: 10;
+    font-size: .9rem;
+    font-weight: bold;
+    letter-spacing: .1rem;
+  }
+
   &__row {
+      transition: all .5s;
+      cursor: pointer;
 
     &:hover {
       background-color: rgba($primary-color-light, .2);
       color: $primary-color-text !important;
+      font-weight: 500;
     }
-  }
 
+    &:hover .table__item-icon {
+        transform: scale(1.15);
+        box-shadow: .5rem .7rem 1.2rem rgba($primary-color, .2);
+        opacity: 1;
+    }
 
+    &:hover .table__arrow {
+        opacity: .8;
+        animation: zoomIn;
+        animation-duration: .6s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
 
-
+    }
+}
 }

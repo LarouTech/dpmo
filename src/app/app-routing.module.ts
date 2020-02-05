@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateRiskComponent } from './risk/create-risk/create-risk.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: "home", pathMatch: 'full' },
   { path: 'home', component: HomeComponent },

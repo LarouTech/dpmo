@@ -17,10 +17,25 @@
       </div>
     </div>
 
-    <mat-table  class="table" [dataSource]="dataSource" matSort matSortActive="rating">
+    <mat-table class="table" [dataSource]="dataSource" matSort matSortActive="rating">
 
       <ng-container matColumnDef="_id">
         <mat-header-cell class="table__header" *matHeaderCellDef># ID</mat-header-cell>
+
+        <mat-cell class="table__item" *matCellDef="let risk">
+
+          <div class="table__arrow-box">
+            <svg class="table__arrow">
+              <use xlink:href="/assets/img/sprite.svg#icon-arrow-right2"></use>
+            </svg>
+
+            <p>{{ risk._id }}</p>
+          </div>
+
+
+        </mat-cell>
+
+
         <mat-cell class="table__item" *matCellDef="let risk">{{ risk._id }}</mat-cell>
       </ng-container>
 
@@ -48,28 +63,84 @@
         <mat-cell class="table__item" *matCellDef="let risk">{{ risk.category }}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="probability">
-        <mat-header-cell class="table__header" *matHeaderCellDef> 
+      <ng-container class="container" matColumnDef="probability">
+        <mat-header-cell class="table__header" *matHeaderCellDef>
           <svg class="table__header-icon">
-          <use xlink:href="/assets/img/sprite.svg#icon-stats-dots"></use>
-        </svg>&nbsp; Probability</mat-header-cell>
-        <mat-cell class="table__item table__item--probability" *matCellDef="let risk">{{ risk.probability }}</mat-cell>
+            <use xlink:href="/assets/img/sprite.svg#icon-stats-dots"></use>
+          </svg>&nbsp; Probability</mat-header-cell>
+
+
+        <mat-cell class="table__item" *matCellDef="let risk">
+          <span class="table__item-box">
+
+            <svg *ngIf="risk.probability <= 33" class="table__item-icon table__item-icon--low">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.probability > 33 && risk.probability <=66" class="table__item-icon table__item-icon--med">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.probability > 66" class="table__item-icon table__item-icon--high">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <p class="table__item-text table__item-text">{{ risk.probability }}</p>
+          </span>
+        </mat-cell>
+
+
+
       </ng-container>
 
       <ng-container matColumnDef="impact">
         <mat-header-cell class="table__header" *matHeaderCellDef>
           <svg class="table__header-icon">
-          <use xlink:href="/assets/img/sprite.svg#icon-bomb"></use>
-        </svg>&nbsp; Impact</mat-header-cell>
-        <mat-cell class="table__item" *matCellDef="let risk">{{ risk.impact }}</mat-cell>
+            <use xlink:href="/assets/img/sprite.svg#icon-bomb"></use>
+          </svg>&nbsp; Impact</mat-header-cell>
+        <mat-cell class="table__item" *matCellDef="let risk">
+          <span class="table__item-box">
+
+            <svg *ngIf="risk.impact <= 33" class="table__item-icon table__item-icon--low">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.impact > 33 && risk.impact <=66" class="table__item-icon table__item-icon--med">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.impact > 66" class="table__item-icon table__item-icon--high">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <p class="table__item-text table__item-text">{{ risk.impact }}</p>
+          </span>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="rating">
         <mat-header-cell class="table__header" *matHeaderCellDef>
           <svg class="table__header-icon">
-          <use xlink:href="/assets/img/sprite.svg#icon-meter"></use>
-        </svg>&nbsp; Rating</mat-header-cell>
-        <mat-cell class="table__item" *matCellDef="let risk">{{ risk.rating }}</mat-cell>
+            <use xlink:href="/assets/img/sprite.svg#icon-meter"></use>
+          </svg>&nbsp; Rating</mat-header-cell>
+        <mat-cell class="table__item" *matCellDef="let risk">
+          <span class="table__item-box">
+
+            <svg *ngIf="risk.rating <= 33" class="table__item-icon table__item-icon--low">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.rating > 33 && risk.rating <=66" class="table__item-icon table__item-icon--med">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <svg *ngIf="risk.rating > 66" class="table__item-icon table__item-icon--high">
+              <use xlink:href="/assets/img/sprite.svg#icon-circle"></use>
+            </svg>
+
+            <p class="table__item-text table__item-text">{{ risk.rating }}</p>
+          </span>
+        </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
