@@ -7,6 +7,7 @@
 
 
       <div class="risk-card">
+        <div *ngIf="!isMitigate" [ngClass]="{ 'flipInY': isMitigate, 'flipInY': !isMitigate }">
         <div class="risk-card__heading-box">
           <div class="flex">
               <svg class="risk-card__heading-logo">
@@ -167,15 +168,183 @@
 
         </div>
 
-        <div class="btn-box">
-          <button class="mt-2 mr-2 btn" mat-raised-button>Create risk</button>
-          <button class="mt-2 btn btn--grey" mat-raised-button type="button">Mitigation</button>
+      </div>
+
+      <!-- mitigation strategy start here -->
+      <div *ngIf="isMitigate" [ngClass]="{ 'flipInY': !isMitigate, 'flipInY': isMitigate }">
+        <div class="risk-card__heading-box">
+          <div class="flex">
+              <svg class="risk-card__heading-logo">
+                <use xlink:href="/assets/img/sprite.svg#icon-tools"></use>
+              </svg>
+              <h2 class="risk-card__heading">Mitigation Strategy</h2>
+          </div>
+        </div>
+
+        <div class="col-2">
+
+          <div class="risk-card__input-box">
+            <div class="risk-card__label-box">
+              <svg class="risk-card__icon mb-1">
+                <use xlink:href="/assets/img/sprite.svg#icon-traffic"></use>
+              </svg>
+              <label for="riskStrategy" class="risk-card__label">Risk Strategy</label>
+            </div>
+            <mat-select formControlName="riskStrategy" name="riskStrategy" id="riskStrategy" class="risk-card__input"
+              [(value)]="selected">
+              <mat-option>None</mat-option>
+              <mat-option value="accept">Accept</mat-option>
+              <mat-option value="avoid">Avoid</mat-option>
+              <mat-option value="mitigate">Mitigate</mat-option>
+              <mat-option value="transfer">Transfer</mat-option>
+
+            </mat-select>
+            <small *ngIf="riskForm.get('riskStrategy').invalid && riskForm.get('riskStrategy').touched"
+              class="risk-card__error">Select a strategy</small>
+          </div>
+
+
+
+          <div class="risk-card__input-box">
+            <div class="risk-card__label-box">
+              <svg class="risk-card__icon">
+                <use xlink:href="/assets/img/sprite.svg#icon-calendar"></use>
+              </svg>
+              <label for="dateRaised" class="risk-card__label">Response date</label>
+            </div>
+            <div class="risk-card__date-box risks-card__wrapper">
+              <input [matDatepicker]="picker" formControlName="responseDate" name="responseDate" id="responseDate" matInput
+                name="responseDate" type="text" class="risk-card__input risk-card__date-input">
+              <mat-datepicker-toggle class="risk-card__toggler" matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>arrow_drop_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker color="primary" #picker disabled="false"></mat-datepicker>
+              <small *ngIf="riskForm.get('responseDate').invalid && riskForm.get('responseDate').touched"
+                class="risk-card__error">Enter a valid date</small>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="risk-card__input-box">
+          <div class="risk-card__label-box">
+            <svg class="risk-card__icon">
+              <use xlink:href="/assets/img/sprite.svg#icon-cogs"></use>
+            </svg>
+            <label for="riskResponse" class="risk-card__label">Risk Response</label>
+          </div>
+          <textarea formControlName="riskResponse" name="riskResponse" id="riskResponse" matInput name="riskResponse"
+            is="riskResponse" type="riskResponse" class="risk-card__input" cdkTextareaAutosize
+            cdkAutosizeMinRows="3"></textarea>
+        </div>
+
+        <div class="risk-card__input-box">
+          <div class="risk-card__label-box">
+            <svg class="risk-card__icon">
+              <use xlink:href="/assets/img/sprite.svg#icon-note"></use>
+            </svg>
+            <label for="notes" class="risk-card__label">Notes</label>
+          </div>
+          <textarea formControlName="riskNotes" name="riskNotes" id="riskNotes" matInput name="riskNotes"
+            is="riskNotes" type="riskNotes" class="risk-card__input" cdkTextareaAutosize
+            cdkAutosizeMinRows="3"></textarea>
         </div>
 
 
+        <div class="risk-card__assess-box">
+
+          <div class="risk-card__input-box">
+            <div class="risk-card__label-box">
+              <svg class="risk-card__icon mb-1">
+                <use xlink:href="/assets/img/sprite.svg#icon-bomb"></use>
+              </svg>
+              <label for="category" class="risk-card__label">Impact
+              </label>
+            </div>
+            <mat-slider formControlName="inherentImpact" name="inherentImpact" min="0" max="100" step="1" color="primary">
+            </mat-slider>
+            <div class="risk-card__score-box">
+              <span class="risk-card__perc">{{ +inherentImpactValue }}<span class="risk-card__symbol">%</span> </span>
+              <span class="risk-card__rating risk-card__rating--low" *ngIf="inherentImpactValue <= 33"
+                matBadgeColor="warn">LOW</span>
+              <span class="risk-card__rating risk-card__rating--med"
+                *ngIf="inherentImpactValue > 33 && this.inherentImpactValue <= 66">MED</span>
+              <span class="risk-card__rating risk-card__rating--high" *ngIf="inherentImpactValue > 66">HIGH</span>
+            </div>
+          </div>
+
+
+          <div class="risk-card__input-box">
+            <div class="risk-card__label-box risk-card__label-box--rating">
+              <div>
+                <svg class="risk-card__icon">
+                  <use xlink:href="/assets/img/sprite.svg#icon-meter"></use>
+                </svg>
+                <label for="category" class="risk-card__label risk-card__label--rating">Inherent Risk
+                </label>
+              </div>
+
+            </div>
+
+            <div class="risk-card__score-box">
+              <div class="risk-card__gauge-bottom">
+                <span class="risk-card__rating risk-card__rating--low-2"
+                  *ngIf="inherentRatingValue <= 33 || inherentRatingValue === undefined || null " matBadgeColor="warn">LOW</span>
+                <span class="risk-card__rating risk-card__rating--med-2"
+                  *ngIf="inherentRatingValue > 33 && this.inherentRatingValue <= 66">MED</span>
+                <span class="risk-card__rating risk-card__rating--high-2" *ngIf="inherentRatingValue > 66">HIGH</span>
+              </div>
+
+              <rg-gauge-chart class="risk-card__gauge" [canvasWidth]="canvasWidth" [needleValue]="inherentNeedleValue"
+                [centralLabel]="inherentCentralLabel" [options]="inherentOptions"></rg-gauge-chart>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="risk-card__input-box">
+            <div class="risk-card__label-box">
+              <svg class="risk-card__icon mb-1">
+                <use xlink:href="/assets/img/sprite.svg#icon-stats-dots"></use>
+              </svg>
+              <label for="category" class="risk-card__label">Probabilty
+              </label>
+            </div>
+            <mat-slider formControlName="inherentProbability" name="inherentProbability" min="1" max="100" step="1" color="primary">
+            </mat-slider>
+            <div class="risk-card__score-box">
+              <span class="risk-card__perc">{{ +inherentProbabilityValue }}<span class="risk-card__symbol">%</span> </span>
+              <span class="risk-card__rating risk-card__rating--low" *ngIf="inherentProbabilityValue <= 33"
+                matBadgeColor="warn">LOW</span>
+              <span class="risk-card__rating risk-card__rating--med"
+                *ngIf="inherentProbabilityValue > 33 && this.inherentProbabilityValue <= 66">MED</span>
+              <span class="risk-card__rating risk-card__rating--high" *ngIf="inherentProbabilityValue > 66">HIGH</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+
+
+
+        <div class="btn-box">
+          <button class="mt-2 mr-2 btn" mat-raised-button>Create risk</button>
+          <button class="mt-2 btn btn--grey" mat-raised-button type="button" (click)="onMitigate()" >Mitigation</button>
+        </div>
+
+
+     
 
 
       </div>
+
+      
 
     </form>
 

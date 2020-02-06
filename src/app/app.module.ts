@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { GaugeChartModule } from 'angular-gauge-chart'
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -46,6 +47,7 @@ import { RiskChartsComponent } from './risk/risk-charts/risk-charts.component';
     ReactiveFormsModule,
     HttpClientModule,
     GaugeChartModule,
+    NgxPaginationModule,
 
   HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }

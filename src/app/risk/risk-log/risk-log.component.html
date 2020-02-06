@@ -17,10 +17,10 @@
       </div>
     </div>
 
-    <mat-table class="table" [dataSource]="dataSource" matSort matSortActive="rating">
+    <mat-table class="table" [dataSource]="dataSource" matSort matSortActive="rating" matSortDisableClear matSortDirection="desc">
 
       <ng-container matColumnDef="_id">
-        <mat-header-cell class="table__header" *matHeaderCellDef># ID</mat-header-cell>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header># ID</mat-header-cell>
 
         <mat-cell class="table__item" *matCellDef="let risk">
 
@@ -40,7 +40,7 @@
       </ng-container>
 
       <ng-container matColumnDef="owner">
-        <mat-header-cell class="table__header" *matHeaderCellDef>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header>
           <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-user-tie"></use>
           </svg>&nbsp;
@@ -49,14 +49,15 @@
       </ng-container>
 
       <ng-container matColumnDef="dateRaised">
-        <mat-header-cell class="table__header" *matHeaderCellDef> <svg class="table__header-icon">
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header> 
+          <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-calendar"></use>
           </svg>&nbsp; Date Raised</mat-header-cell>
         <mat-cell class="table__item" *matCellDef="let risk">{{ risk.dateRaised | date: 'M/dd/yyyy' }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="category">
-        <mat-header-cell class="table__header" *matHeaderCellDef>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header>
           <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-drawer"></use>
           </svg>&nbsp; Category</mat-header-cell>
@@ -64,7 +65,7 @@
       </ng-container>
 
       <ng-container class="container" matColumnDef="probability">
-        <mat-header-cell class="table__header" *matHeaderCellDef>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header>
           <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-stats-dots"></use>
           </svg>&nbsp; Probability</mat-header-cell>
@@ -94,7 +95,7 @@
       </ng-container>
 
       <ng-container matColumnDef="impact">
-        <mat-header-cell class="table__header" *matHeaderCellDef>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header>
           <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-bomb"></use>
           </svg>&nbsp; Impact</mat-header-cell>
@@ -119,7 +120,7 @@
       </ng-container>
 
       <ng-container matColumnDef="rating">
-        <mat-header-cell class="table__header" *matHeaderCellDef>
+        <mat-header-cell class="table__header" *matHeaderCellDef mat-sort-header>
           <svg class="table__header-icon">
             <use xlink:href="/assets/img/sprite.svg#icon-meter"></use>
           </svg>&nbsp; Rating</mat-header-cell>
@@ -144,14 +145,12 @@
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-      <mat-row class="table__row" *matRowDef="let row; columns: tableColumns"></mat-row>
-
-
+      <mat-row class="table__row" *matRowDef="let row ; columns: tableColumns "></mat-row>
 
     </mat-table>
 
-
-
+    <mat-paginator class="paginator" [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+   
 
   </div>
 

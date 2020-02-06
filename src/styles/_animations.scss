@@ -17,6 +17,35 @@
   animation-fill-mode: forwards;
 }
 
+.fadeOut {
+  animation: fadeOut;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fadeIn {
+  animation: fadeIn;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.zoomInUp {
+  animation: zoomInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.flipInY {
+  animation: flipInY;
+  animation-delay: 0;
+  animation-duration: .2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 
 @keyframes expand {
   0% {

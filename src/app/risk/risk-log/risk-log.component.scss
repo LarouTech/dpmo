@@ -13,6 +13,9 @@
 .log-card {
   @include panel-style;
   transition: all 2s;
+  padding: 3rem 4rem;
+  padding-bottom: 1rem;
+
 
   &__filter-box {
     display: flex;
@@ -66,11 +69,11 @@
   background-color: rgba($grey-light-3, .3);
   box-shadow: .4rem .6rem 1rem rgba($primary-color, .2);
   margin-top: 1.5rem;
-
+    
 
   &__header {
     color: $primary-color !important;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,19 +98,19 @@
   }
 
   &__arrow-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__arrow {
-      height: 2rem;
-      width: 2rem;
-      fill: $primary-color-dark;
-      opacity: 0;
-      transform: translateX(-4rem) scaleY(.7);
-      padding: 0;
-      margin: 0;
+    height: 2rem;
+    width: 2rem;
+    fill: $primary-color-dark;
+    opacity: 0;
+    transform: translateX(-4rem) scaleY(.7);
+    padding: 0;
+    margin: 0;
   }
 
   &__item-icon {
@@ -147,8 +150,8 @@
   }
 
   &__row {
-      transition: all .5s;
-      cursor: pointer;
+    transition: all .5s;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba($primary-color-light, .2);
@@ -157,18 +160,26 @@
     }
 
     &:hover .table__item-icon {
-        transform: scale(1.15);
-        box-shadow: .5rem .7rem 1.2rem rgba($primary-color, .2);
-        opacity: 1;
+      transform: scale(1.15);
+      box-shadow: .5rem .7rem 1.2rem rgba($primary-color, .2);
+      opacity: 1;
     }
 
     &:hover .table__arrow {
-        opacity: .8;
-        animation: zoomIn;
-        animation-duration: .6s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
+      opacity: .8;
+      animation: zoomIn;
+      animation-duration: .6s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
 
     }
+  }
+
+
 }
+
+.paginator {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: $primary-color;
 }

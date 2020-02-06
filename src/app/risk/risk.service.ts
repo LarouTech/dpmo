@@ -35,6 +35,7 @@ export class RiskService {
         (value: Risk) => {
           this.risks.push(risk);
           this.riskChanged.next(this.risks);
+          console.log(this.risks);
         }
       )
   }
